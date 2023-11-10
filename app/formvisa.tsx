@@ -59,7 +59,7 @@ const FormComponentvisa = () => {
             </div>
 
           <div className="p-2">
-            <label className="text-sm">Mother's Name:</label>
+            <label className="text-sm">Mother Name:</label>
             <input type="text" className="border rounded p-2 w-full" />
           </div>
           <div className="p-2">
