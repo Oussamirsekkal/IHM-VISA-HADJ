@@ -35,7 +35,7 @@ const FormComponent = () => {
           </div>
           <div className="p-2">
             <label className="text-sm">Date of birth:</label>
-            <input type="Date" pattern="\d{4}-\d{2}-\d{2}" className="border rounded p-2 w-full" />
+            <input type="Date" className="border rounded p-2 w-full" />
 
           </div>
 
@@ -101,7 +101,7 @@ const FormComponent = () => {
               <input type="text" className="border rounded p-2 mr-2 w-full" />
               <input type="number"pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     className="border rounded p-2 w-full"
-                    placeholder="Enter phone number (e.g., 123-456-7890)"
+                    placeholder="Enter phone number "
               />
             </div>
           </div>
