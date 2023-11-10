@@ -39,17 +39,14 @@ const FormComponentvisa = () => {
             </div>
 
           <div className="p-2 flex flex-col-3">
-          <label className="text-sm">Passport No:</label>
+          <label className="text-sm"> Date Passport issued:</label>
+          
           <input
   type="Date"
   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
   className="border rounded p-2 w-full"
   placeholder="Enter Passport"
 />
-
-          <label className="text-sm"> Date Passport issued:</label>
-          
-              <input type="text" className="border rounded p-2 mr-2 w-full" />
               
           </div>
             
