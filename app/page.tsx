@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image';
 import FormComponent from './form';
 import FormComponentvisa from './formvisa';
