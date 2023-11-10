@@ -35,7 +35,8 @@ const FormComponent = () => {
           </div>
           <div className="p-2">
             <label className="text-sm">Date of birth:</label>
-            <input type="Date" className="border rounded p-2 w-full" />
+            <input type="Date" pattern="\d{4}-\d{2}-\d{2}" className="border rounded p-2 w-full" />
+
           </div>
 
           <div className="p-2">
@@ -56,10 +57,10 @@ const FormComponent = () => {
           <div className="p-2">
             <label className="text-sm">Sex:</label>
             <div>
-            <input type="radio" className="border m-1" id="male" />
+            <input type="radio" className="border m-1" id="male" name="gender" />
 
               <label htmlFor="male" className="mr-2">Male</label>
-              <input type="radio" className="border m-1" id="female" />
+              <input type="radio" className="border m-1" id="female" name="gender" />
               <label htmlFor="female">Female</label>
             </div>
           </div>
