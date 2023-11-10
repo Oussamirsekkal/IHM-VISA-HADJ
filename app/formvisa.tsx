@@ -44,7 +44,7 @@ const FormComponentvisa = () => {
   type="Date"
   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
   className="border rounded p-2 w-full"
-  placeholder="Enter Passport ;"
+  placeholder="Enter Passport"
 />
 
           <label className="text-sm"> Date Passport issued:</label>
