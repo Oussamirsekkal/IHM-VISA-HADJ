@@ -8,7 +8,7 @@ import { Metadata } from 'next'
 
  
 export const metadata: Metadata = {
-  title: 'KSA',
+  title: 'TP IHM',
 }
 
 export default function Home() {
