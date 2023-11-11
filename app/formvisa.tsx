@@ -38,7 +38,7 @@ const FormComponentvisa = () => {
                 <input type="text" className="border rounded p-2 w-full" />
             </div>
 
-          <div className="p-2 flex flex-col-3">
+          <div className="p-2">
           <label className="text-sm"> Date Passport issued:</label>
           
           <input
