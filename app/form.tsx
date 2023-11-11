@@ -116,12 +116,14 @@ const FormComponent = () => {
             </div>
           </div>
 
-          <div className="p-2 flex justify-end">
+         
+
+        </div> 
+        <div className="p-2 flex justify-end">
           <button
            className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded">Next</button>
-          </div>
-
-          </div>
+        </div>
+        
         </form>
       </div>
     </div>
