@@ -35,118 +35,80 @@ const FormComponentvisa = () => {
 
           <div className="p-2">
                 <label className="text-sm">Passport No:</label>
-                <input type="text" className="border rounded p-2 w-full" />
-            </div>
+                <input type="number" className="border rounded p-2 w-full" />
+          </div>
 
-          <div className="p-2">
-          <label className="text-sm"> Date Passport issued:</label>
-          
-          <input
-  type="Date"
-  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-  className="border rounded p-2 w-full"
-  placeholder="Enter Passport"
-/>
-              
+          <div className="p-2 ">
+              <label className="text-sm"> Date Passport issued:</label>
+              <input type="Date" className="border rounded p-2 w-full" />
           </div>
             
             <div className="p-2">
-                <label className="text-sm">Full Name:</label>
+                <label className="text-sm">Place of issue:</label>
                 <input type="text" className="border rounded p-2 w-full" />
             </div>
 
+            <div className="p-2">
+              <label className="text-sm"> Passport expiration date:</label>
+              <input type="Date" className="border rounded p-2 w-full" />
+            </div>
+
           <div className="p-2">
-            <label className="text-sm">Mother Name:</label>
-            <input type="text" className="border rounded p-2 w-full" />
-          </div>
-          <div className="p-2">
-            <label className="text-sm">Date of birth:</label>
+            <label className="text-sm">Date of departure:</label>
             <input type="Date" className="border rounded p-2 w-full" />
           </div>
 
           <div className="p-2">
-            <label className="text-sm">Place of Birth:</label>
+            <label className="text-sm">Date of arrival:</label>
+            <input type="Date" className="border rounded p-2 w-full" />
+          </div>
+
+          <div className="p-2">
+            <label className="text-sm">Duration of stay in kingdom:</label>
+            <input type="number" className="border rounded p-2 w-full" placeholder='days'/>
+          </div>
+
+          <div className="p-2">
+            <label className="text-sm">Mode of payment:</label>
+            <select className="block w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300">
+                <option value="Free">Free</option>
+                <option value="Cash">Cash </option>
+                <option value="Receipt">Receipt</option>
+            </select>
+          </div>
+
+          <div className="p-2 grid grid-cols-2">
+                <label>Cheque No /Receipt No</label>
+                <label className='ml-2'>Date</label>
+                <input type="number" className="border rounded p-2 w-full"/>
+                <input className='ml-2' type='Date'/>
+          </div>
+
+          <div className="p-2">
+            <label className="text-sm">mahram:</label>
             <input type="text" className="border rounded p-2 w-full" />
           </div>
 
           <div className="p-2">
-            <label className="text-sm">Previous Nationality:</label>
-            <input type="text" className="border rounded p-2 w-full" />
-          </div>
-
-          <div className="p-2">
-            <label className="text-sm">Present Nationality:</label>
-            <input type="text" className="border rounded p-2 w-full" />
-          </div>
-
-          <div className="p-2">
-            <label className="text-sm">Sex:</label>
-            <div>
-            <input type="radio" className="border m-1" id="male" />
-
-              <label htmlFor="male" className="mr-2">Male</label>
-              <input type="radio" className="border m-1" id="female" />
-              <label htmlFor="female">Female</label>
-            </div>
-          </div>
-
-          <div className="p-2">
-            <label className="text-sm">Status:</label>
-            <input type="text" className="border rounded p-2 w-full" />
-          </div>
-
-          <div className="p-2">
-            <label className="text-sm">Sect:</label>
+            <label className="text-sm">Relationship:</label>
             <input type="text" className="border rounded p-2 w-full" />
           </div>
           
           <div className="p-2">
-            <label className="text-sm">Religion:</label>
+            <label className="text-sm">Carier's name:</label>
             <input type="text" className="border rounded p-2 w-full" />
           </div>
 
           <div className="p-2">
-            <label className="text-sm">Place of issue:</label>
+            <label className="text-sm">Destination:</label>
             <input type="text" className="border rounded p-2 w-full" />
           </div>
-
-          <div className="p-2">
-            <label className="text-sm">Qualification:</label>
-            <input type="text" className="border rounded p-2 w-full" />
-          </div>
-
-          <div className="p-2">
-            <label className="text-sm">Profession:</label>
-            <input type="text" className="border rounded p-2 w-full" />
-          </div>
-
-          <div className="p-2 ">
-            <label className="text-sm">Adress and phone number:</label>
-            <div className="p-2 flex flex-col-2">
-              <input type="text" className="border rounded p-2 mr-2 w-full" />
-              <input type="number"pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    className="border rounded p-2 w-full"
-                    placeholder="Enter phone number"
-              />
-            </div>
-          </div>
-          <div className="p-2 ">
-            <label className="text-sm"> Buisness Adress and phone number:</label>
-            <div className="p-2 flex flex-col-2">
-              <input type="text" className="border rounded p-2 mr-2 w-full" />
-              <input type="number"pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                    className="border rounded p-2 w-full"
-                    placeholder="Enter phone number (e.g., 123-456-7890)"
-              />
-            </div>
-          </div>
-
+      </div> 
           <div className="p-2 flex justify-end">
           <button
            className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded">Next</button>
           </div>
-
-          </div>
+        
         </form>
       </div>
     </div>
