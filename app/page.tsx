@@ -1,30 +1,33 @@
 /* eslint-disable react/no-unescaped-entities */
+"use client"
 import Image from 'next/image';
-import FormComponent from './form';
-import Head from 'next/head'; 
+import React, { useState } from 'react';
+import Head from 'next/head';
 import Navbar from './navbar';
+import FormComponent from './form';
 import FormComponentvisa from './formvisa';
-import { Metadata } from 'next'
+import FormComponentplus from './formplus';
 
- 
-export const metadata: Metadata = {
-  title: 'TP IHM',
-}
+import { Metadata } from 'next';
 
-export default function Home() {
+
+const Home = () => {
+  const [currentForm, setCurrentForm] = useState(0);
+
+  const handleNext = () => {
+    setCurrentForm((prev) => prev + 1);
+  };
 
   return (
-    
     <main>
-
-      
       <Navbar></Navbar>
       <br></br>
-      
       <h1></h1>
-      {}
-      <FormComponentvisa /> 
-    
+      {currentForm === 0 && <FormComponent onNext={handleNext} />}
+      {currentForm === 1 && <FormComponentvisa onNext={handleNext} />}
+      {currentForm === 2 && <FormComponentplus />}
     </main>
   );
-}
+};
+
+export default Home;

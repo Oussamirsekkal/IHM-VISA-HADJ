@@ -1,10 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+"use client"
 import { useState } from 'react';
 import Image from 'next/image'; 
+import React, { FC } from 'react'; // Import FC (Functional Component) type
+
+interface FormComponentProps {
+  onNext: () => void; // Define the type of onNext prop
+}
 
 
-const FormComponentvisa = () => {
+const FormComponentvisa : FC<FormComponentProps> = ({ onNext })=> {
   return (
     <div id="Div" className="p-4">
       <div className="flex flex-col items-center"> {}
@@ -106,7 +111,7 @@ const FormComponentvisa = () => {
       </div> 
           <div className="p-2 flex justify-end">
           <button
-           className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded">Next</button>
+           className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded" onClick={onNext}>Next</button>
           </div>
         
         </form>
