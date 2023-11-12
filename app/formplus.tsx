@@ -149,7 +149,7 @@ const FormComponentplus = () => {
 
           <div className="p-2 flex justify-end">
             <button className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded">
-              Next
+             Submit
             </button>
           </div>
         </form>
