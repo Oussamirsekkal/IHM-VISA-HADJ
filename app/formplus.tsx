@@ -89,24 +89,18 @@ const FormComponentplus = () => {
               <label className="text-md font-bold text-gray-700">
                 Name and address of company or individual in the kingdom:
               </label>
-              <input
-                type="text"
-                className="border border-gray-300 rounded my-1 p-2 w-full"
-              />
-              <input
-                type="text"
-                className="border border-gray-300 rounded my-1 p-2 w-full"
-              />
+              <input type="text" className="border rounded my-2 p-2 w-full" />
+              <input type="text" className="border rounded p-2 w-full" />
             </div>
 
             <div className="p-2 grid grid-cols-2">
                 <label>Name</label>
                 <label className='ml-2'>Date</label>
-                <input type="text" className="border rounded p-2 w-full"/>
-                <input className='ml-2' type='Date'/>
+                <input type="text" className="border rounded mr-2 p-2 w-full" />
+                <input type="date" className="border rounded ml-2 p-2 w-full" />
           </div>
 
-            <div className="p-2 mt-4 bg-gray-100 rounded-md">
+            <div className="p-0.5 mt-4 bg-gray-100 rounded-md">
               <p className="text-md font-bold text-gray-800">
                 I, the undersigned, hereby acknowledge that all the information I have provided is accurate, and I will adhere to the laws of the Kingdom during my stay.
               </p>
@@ -128,28 +122,29 @@ const FormComponentplus = () => {
 
             <div className="p-2 grid grid-cols-2">
                 <label>Date:</label>
-                <label>Autorization:</label>
-                <input type="date" className="ml-2" />
-                <input type="text" className="ml-2" />
+                <label className='ml-2'>Autorization:</label>
+                <input type="date" className="border rounded mr-2 p-2 w-full" />
+                <input type="text" className="border rounded ml-2 p-2 w-full" />
+                
           </div>
           <div className="p-2 grid grid-cols-1">
                 <label>Visit/work for:</label>
-                <input type="text" className="ml-2" />
+                <input type="text" className="border rounded p-2 w-full" />
           </div>
           <div className="p-2 grid grid-cols-2">
                 <label>Date:</label>
-                <label>Visa N=°:</label>
-                <input type="date" className="ml-2" />
-                <input type="text" className="ml-2" />
+                <label className='ml-2'>Visa N=°:</label>
+                <input type="date" className="border rounded mr-2 p-2 w-full" />
+                <input type="text" className="border rounded ml-2 p-2 w-full" />
           </div>
           <div className="p-2 grid grid-cols-3">
-                <label>File collected:</label>
-                <label>Type:</label>
-                <label>Duration:</label>
-                <input type="text" className="ml-2" />
-                <input type="text" className="ml-2" />
-                <input type="text" className="ml-2" />
-          </div>
+  <label>File collected:</label>
+  <label>Type:</label>
+  <label className='ml-2'>Duration:</label>
+  <input type="text" className="border rounded ml-2 p-2 w-3/4" />
+  <input type="text" className="border rounded ml-2 p-2 w-3/4" />
+  <input type="text" className="border rounded ml-2  p-2 w-3/4" />
+</div>
           </div>
 
           <div className="p-2 flex justify-end">
