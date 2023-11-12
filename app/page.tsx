@@ -7,6 +7,7 @@ import Navbar from './navbar';
 import FormComponent from './form';
 import FormComponentvisa from './formvisa';
 import FormComponentplus from './formplus';
+import Footer from './footer';
 
 import { Metadata } from 'next';
 
@@ -26,6 +27,7 @@ const Home = () => {
       {currentForm === 0 && <FormComponent onNext={handleNext} />}
       {currentForm === 1 && <FormComponentvisa onNext={handleNext} />}
       {currentForm === 2 && <FormComponentplus />}
+      <Footer />
     </main>
   );
 };
