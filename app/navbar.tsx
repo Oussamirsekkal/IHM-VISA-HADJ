@@ -6,6 +6,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [language, setLanguage] = useState("en"); 
 
   const links = [
     {
@@ -21,6 +22,11 @@ const Navbar = () => {
       link: "About Us",
     },
   ];
+
+  const handleLanguageSwitch = () => {
+    setLanguage(language === "en" ? "ar" : "en");
+    // You can add logic to change the language in your application
+  };
 
   return (
     <div className="flex justify-between items-center w-full h-15 px-4 text-white bg-emerald-800 fixed top-0">
@@ -58,6 +64,15 @@ const Navbar = () => {
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
+      <div className="flex items-center space-x-4">
+        <button
+          onClick={handleLanguageSwitch}
+          className="text-white px-3 py-2 rounded-full border border-white focus:outline-none focus:border-opacity-0 focus:border-emerald-500 hover:bg-opacity-80"
+        >
+          {language === "en" ? "عربية" : "English"}
+        </button>
+      </div>
+
       {nav && (
         <ul className="flex flex-col justify-center items-center fixed top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-green-800 text-gray-500">
           {links.map(({ id, link }) => (
@@ -77,3 +92,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
