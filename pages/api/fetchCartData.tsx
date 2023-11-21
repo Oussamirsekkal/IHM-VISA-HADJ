@@ -1,3 +1,4 @@
+"use server"
 import { NextApiRequest, NextApiResponse } from 'next';
 import { sql } from '@vercel/postgres';
 
