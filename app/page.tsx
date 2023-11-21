@@ -1,19 +1,45 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client"
-import Image from 'next/image';
-import React, { useState } from 'react';
-import Head from 'next/head';
+import React, { useState, useEffect } from 'react';
 import Navbar from './navbar';
 import FormComponent from './form';
 import FormComponentvisa from './formvisa';
 import FormComponentplus from './formplus';
 import Footer from './footer';
 
-import { Metadata } from 'next';
-
-
 const Home = () => {
   const [currentForm, setCurrentForm] = useState(0);
+
+  const [cartData, setCartData] = useState<Array<{ id: string, client_name: string, email: string, phone_number: string, address: string }>>([]);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/fetchCartData?user=userIdHere');
+        const data = await response.json();
+        setCartData(data);
+      } catch (error) {
+        console.error('Error fetching cart data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const renderCartData = () => {
+    return (
+      <div>
+        {cartData.map((item) => (
+          <div key={item.id}>
+            <p>Name: {item.client_name}</p>
+            <p>Email: {item.email}</p>
+            <p>Phone: {item.phone_number}</p>
+            <p>Address: {item.address}</p>
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   const handleNext = () => {
     setCurrentForm((prev) => prev + 1);
@@ -21,12 +47,19 @@ const Home = () => {
 
   return (
     <main>
-      <Navbar></Navbar>
-      <br></br>
-      <h1></h1>
+      <Navbar />
+      <br />
+      <h1>Data from SQL Database</h1>
       {currentForm === 0 && <FormComponent onNext={handleNext} />}
       {currentForm === 1 && <FormComponentvisa onNext={handleNext} />}
       {currentForm === 2 && <FormComponentplus />}
+      <div>
+        {cartData.length > 0 ? (
+          renderCartData()
+        ) : (
+          <p>Loading data...</p>
+        )}
+      </div>
       <Footer />
     </main>
   );
