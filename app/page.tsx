@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/fetchCartData?user=userIdHere');
+        const response = await fetch('/api/fetchCartData?user=1');
         const data = await response.json();
         setCartData(data);
       } catch (error) {
