@@ -25,7 +25,7 @@ const Navbar = () => {
 
   const handleLanguageSwitch = () => {
     setLanguage(language === "en" ? "ar" : "en");
-    // You can add logic to change the language in your application
+   
   };
 
   return (

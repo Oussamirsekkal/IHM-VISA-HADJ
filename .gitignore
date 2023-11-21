@@ -7,3 +7,4 @@ out/
 
 # Visual Studio Code
 .vscode/
+.vercel
