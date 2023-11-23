@@ -102,8 +102,10 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
 
           <div className="p-2 ">
             <label className="text-sm">Adress and phone number:</label>
-            <div className="p-2 flex flex-col-2">
+            <div className="p-2">
               <input type="text" className="border rounded p-2 mr-2 w-full" />
+            </div>
+            <div className="p-2">
               <input type="number"pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     className="border rounded p-2 w-full"
                     placeholder="Enter phone number "
@@ -112,8 +114,12 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
           </div>
           <div className="p-2 ">
             <label className="text-sm"> Buisness Adress and phone number:</label>
-            <div className="p-2 flex flex-col-2">
+            <div className="p-2 ">
               <input type="text" className="border rounded p-2 mr-2 w-full" />
+             
+            </div>
+            <div className="p-2 ">
+             
               <input type="number"pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     className="border rounded p-2 w-full"
                     placeholder="Enter phone number (e.g., 123-456-7890)"
