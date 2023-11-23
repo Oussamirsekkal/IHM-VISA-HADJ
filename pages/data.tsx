@@ -62,7 +62,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   if (process.env.NODE_ENV === 'development') {
     apiUrl = 'http://localhost:3000/api/fetchCartData?user=*'; // Local development
   } else {
-    apiUrl = 'https://YOUR_VERCEL_APP_URL/api/fetchCartData?user=*'; // Update with your Vercel app URL
+    apiUrl = 'https://ihm-visa-hadj-ehxm.vercel.app/api/fetchCartData?user=*'; // Update with your Vercel app URL
   }
 
   try {
