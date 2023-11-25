@@ -304,25 +304,27 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
           </div>
         </div>
         <div className="p-2 flex justify-end">
-        <button
+        <div className="p-2 flex justify-end space-x-2">
+          <button
+            type="submit"
+            className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded"
+          >
+            Submit
+          </button>
+          <button
             type="button"
-            className="bg-red-500 hover:bg-red-700 text-white font-bold py-0.5 px-4 rounded ml-2"
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-0.5 px-4 rounded"
             onClick={handleReset}
           >
             Reset
-          </button>        
-  <button
-    type="submit"
-    className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded"
-  >
-    Submit
-  </button>
-  <button
-    className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded ml-2"
-    onClick={onNext}
-  >
-    Next
-  </button>
+          </button>
+          <button
+            className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded"
+            onClick={onNext}
+          >
+            Next
+          </button>
+        </div>
 
 </div>
       </form>
