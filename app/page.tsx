@@ -28,7 +28,7 @@ const Home = () => {
       {currentForm === 1 && <FormComponentvisa onNext={handleNext} />}
       {currentForm === 2 && <FormComponentplus />}
    
-      <Footer />
+    
     </main>
   );
 };

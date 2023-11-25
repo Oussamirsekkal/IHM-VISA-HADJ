@@ -1,36 +1,80 @@
+"use server"
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Pool } from '@vercel/postgres';
+import { sql } from '@vercel/postgres';
+import { toast } from 'react-toastify';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     if (req.method === 'POST') {
-      // Extract the data to be inserted from the request body
-      const { field1, field2, /* Add other fields */ } = req.body;
+      const {
+        first_name,
+        full_name,
+        mother_name,
+        date_of_birth,
+        place_of_birth,
+        previous_nationality,
+        present_nationality,
+        sex,
+        status,
+        sect,
+        religion,
+        place_of_issue,
+        qualification,
+        profession,
+        address,
+        phone_number,
+        business_address,
+        business_phone_number,
+      } = req.body;
 
-      // Create a connection pool
-      const pool = new Pool({
-        connectionString: process.env.POSTGRES_URL,
-      });
-
-      // Get a client from the pool
-      const client = await pool.connect();
-
-      // Perform the insertion operation
-      const result = await client.query(
-        `INSERT INTO infoclient (field1, field2 /* Add other fields */) VALUES ($1, $2 /* Add other values */)
-         RETURNING *`,
-        [field1, field2 /* Add other values */]
-      );
-
-      // Release the client back to the pool
-      client.release();
-
-      // Send a success response with inserted data
+      const result = await sql`
+        INSERT INTO infoclient (
+          first_name,
+          full_name,
+          mother_name,
+          date_of_birth,
+          place_of_birth,
+          previous_nationality,
+          present_nationality,
+          sex,
+          status,
+          sect,
+          religion,
+          place_of_issue,
+          qualification,
+          profession,
+          address,
+          phone_number,
+          business_address,
+          business_phone_number
+        ) 
+        VALUES (
+          ${first_name},
+          ${full_name},
+          ${mother_name},
+          ${date_of_birth},
+          ${place_of_birth},
+          ${previous_nationality},
+          ${present_nationality},
+          ${sex},
+          ${status},
+          ${sect},
+          ${religion},
+          ${place_of_issue},
+          ${qualification},
+          ${profession},
+          ${address},
+          ${phone_number},
+          ${business_address},
+          ${business_phone_number}
+        ) RETURNING *`;
+        toast.success('Data inserted successfully!');
       res.status(200).json({ message: 'Data inserted successfully!', result });
     } else {
       res.status(405).json({ error: 'Method not allowed' });
     }
-  } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+  } catch (error: any) {
+    const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+    res.status(500).json({ error: errorMessage });
   }
 }

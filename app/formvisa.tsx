@@ -11,7 +11,7 @@ interface FormComponentProps {
 
 const FormComponentvisa : FC<FormComponentProps> = ({ onNext })=> {
   return (
-    <div id="Div" className="p-4">
+    <div id="Div" className="p-2">
       <div className="flex flex-col items-center"> {}
         <div className="text-center py-4">
           <Image
