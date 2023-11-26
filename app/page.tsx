@@ -21,7 +21,6 @@ const Home = () => {
 
   return (
     <main>
-      <Navbar />
       <br />
       <h1>Data from SQL Database</h1>
       {currentForm === 0 && <FormComponent onNext={handleNext} />}

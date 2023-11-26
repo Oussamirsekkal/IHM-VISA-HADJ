@@ -95,6 +95,8 @@ const DataPage = ({ cartData }: DataProps) => {
             )}
           </div>
         </div>
+        <br></br>
+        <br></br>
         <Footer />
       </main>
     );
