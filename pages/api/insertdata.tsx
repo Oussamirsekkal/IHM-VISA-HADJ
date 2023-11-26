@@ -1,7 +1,7 @@
 "use server"
 import { NextApiRequest, NextApiResponse } from 'next';
 import { sql } from '@vercel/postgres';
-import { toast } from 'react-toastify';
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -68,7 +68,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           ${business_address},
           ${business_phone_number}
         ) RETURNING *`;
-        toast.success('Data inserted successfully!');
+    
       res.status(200).json({ message: 'Data inserted successfully!', result });
     } else {
       res.status(405).json({ error: 'Method not allowed' });

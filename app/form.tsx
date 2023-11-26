@@ -107,6 +107,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               name="full_name"
               value={formData.full_name}
               onChange={handleChange}
+              required 
             />
           </div>
 
@@ -128,6 +129,8 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               className="border rounded p-2 w-full"
               name="date_of_birth"
               value={formData.date_of_birth}
+              max={new Date().toISOString().split('T')[0]} 
+              required 
               onChange={handleChange}
             />
           </div>
@@ -140,6 +143,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               name="place_of_birth"
               value={formData.place_of_birth}
               onChange={handleChange}
+              required
             />
           </div>
 
@@ -276,6 +280,8 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
                 value={formData.phone_number}
                 onChange={handleChange}
                 placeholder="Enter phone number"
+                pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                required
               />
             </div>
           </div>
@@ -298,7 +304,9 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
                 name="business_phone_number"
                 value={formData.business_phone_number}
                 onChange={handleChange}
+                pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
                 placeholder="Enter phone number"
+                required
               />
             </div>
           </div>
