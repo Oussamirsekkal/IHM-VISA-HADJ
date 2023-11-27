@@ -107,7 +107,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               className="border rounded p-2 w-full"
               name="full_name"
               value={formData.full_name}
-              pattern="[A-Za-z]+([ -][A-Za-z]+)?([ -][A-Za-z]+)?([ -][A-Za-z]+)?"
+              pattern="[A-Za-z]+( [A-Za-z]+)*"
 
               onChange={handleChange}
               required 
