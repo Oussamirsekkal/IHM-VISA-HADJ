@@ -69,11 +69,11 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
       const response = await axios.post('/api/insertdata', formData);
       console.log('Data inserted successfully:', response.data);
 
-      // Show a success notification
+      
       toast.success('Your data has been successfully submitted!');
       handleReset();
 
-      // Optionally, you can call onNext here or perform other actions upon successful submission
+     
     } catch (error) {
       console.error('Error inserting data:', error);
     }
@@ -95,6 +95,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               className="border rounded p-2 w-full"
               name="first_name"
               value={formData.first_name}
+              pattern="[A-Za-z]+"
               onChange={handleChange}
             />
           </div>
@@ -106,6 +107,8 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               className="border rounded p-2 w-full"
               name="full_name"
               value={formData.full_name}
+              pattern="[A-Za-z]+(?:[ -][A-Za-z]+){0,3}"
+
               onChange={handleChange}
               required 
             />
@@ -117,6 +120,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               type="text"
               className="border rounded p-2 w-full"
               name="mother_name"
+              pattern="[A-Za-z]+"
               value={formData.mother_name}
               onChange={handleChange}
             />
@@ -141,6 +145,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               type="text"
               className="border rounded p-2 w-full"
               name="place_of_birth"
+              pattern="[A-Za-z]+"
               value={formData.place_of_birth}
               onChange={handleChange}
               required
@@ -153,6 +158,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               type="text"
               className="border rounded p-2 w-full"
               name="previous_nationality"
+              pattern="[A-Za-z]+"
               value={formData.previous_nationality}
               onChange={handleChange}
             />
@@ -164,6 +170,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               type="text"
               className="border rounded p-2 w-full"
               name="present_nationality"
+              pattern="[A-Za-z]+"
               value={formData.present_nationality}
               onChange={handleChange}
             />
@@ -200,6 +207,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
             <input
               type="text"
               className="border rounded p-2 w-full"
+              pattern="[A-Za-z]+"
               name="status"
               value={formData.status}
               onChange={handleChange}
@@ -211,6 +219,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
             <input
               type="text"
               className="border rounded p-2 w-full"
+              pattern="[A-Za-z]+"
               name="sect"
               value={formData.sect}
               onChange={handleChange}
@@ -223,6 +232,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               type="text"
               className="border rounded p-2 w-full"
               name="religion"
+              pattern="[A-Za-z]+"
               value={formData.religion}
               onChange={handleChange}
             />
@@ -234,6 +244,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               type="text"
               className="border rounded p-2 w-full"
               name="place_of_issue"
+              pattern="[A-Za-z]+"
               value={formData.place_of_issue}
               onChange={handleChange}
             />
@@ -245,6 +256,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               type="text"
               className="border rounded p-2 w-full"
               name="qualification"
+          
               value={formData.qualification}
               onChange={handleChange}
             />
@@ -256,6 +268,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
               type="text"
               className="border rounded p-2 w-full"
               name="profession"
+              pattern="[A-Za-z]+"
               value={formData.profession}
               onChange={handleChange}
             />
