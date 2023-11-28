@@ -12,7 +12,16 @@ interface FormComponentProps {
 }
 //const { t } = useTranslation();
 
-
+function formatDate(dateString :Date) {
+  if (!dateString) return '';
+  
+  const date = new Date(dateString);
+  const year = date.getFullYear().toString().slice(-2);
+  const month = ('0' + (date.getMonth() + 1)).slice(-2);
+  const day = ('0' + date.getDate()).slice(-2);
+  
+  return `${year}/${month}/${day}`;
+}
 const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
   const [formData, setFormData] = useState({
     first_name: '',
@@ -76,10 +85,11 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
       const selectedDate = new Date(value);
       const today = new Date();
       const eighteenYearsAgo = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+      const onehundredfiftyYearsAgo = new Date(today.getFullYear() - 150, today.getMonth(), today.getDate());
   
-      if (eighteenYearsAgo < selectedDate) {
+      if (eighteenYearsAgo < selectedDate || selectedDate <onehundredfiftyYearsAgo ) {
        
-        alert("Please select a date of birth that makes you at least 18 years old.");
+        alert("Please select a date of birth that makes you at least 18 years old and max 150 years old.");
         setFormData({
           ...formData,
           date_of_birth: '', 
@@ -723,7 +733,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
             </div>
             <div className="p-2">
               <input
-                type="text"
+                type="number"
                 className="border rounded p-2 w-full"
                 name="phone_number"
                 value={formData.phone_number}
@@ -748,7 +758,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
             </div>
             <div className="p-2">
               <input
-                type="text"
+                type="number"
                 className="border rounded p-2 w-full"
                 name="business_phone_number"
                 value={formData.business_phone_number}
