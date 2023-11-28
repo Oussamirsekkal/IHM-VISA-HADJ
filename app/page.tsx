@@ -7,11 +7,12 @@ import FormComponentplus from './formplus';
 import Footer from './footer';
 
 
+
+
 const Home = () => {
   const [currentForm, setCurrentForm] = useState(0);
 
   
-
 
 
 
@@ -22,7 +23,7 @@ const Home = () => {
   return (
     <main>
       <br />
-      <h1>Data from SQL Database</h1>
+   
       {currentForm === 0 && <FormComponent onNext={handleNext} />}
       {currentForm === 1 && <FormComponentvisa onNext={handleNext} />}
       {currentForm === 2 && <FormComponentplus />}
