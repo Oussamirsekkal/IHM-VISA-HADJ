@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 interface FormComponentProps {
   onNext: () => void;
 }
-//const { t } = useTranslation();
+
 
 function formatDate(dateString :Date) {
   if (!dateString) return '';
@@ -81,23 +81,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
     });
   
    
-    if (name === "date_of_birth") {
-      const selectedDate = new Date(value);
-      const today = new Date();
-      const eighteenYearsAgo = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
-      const onehundredfiftyYearsAgo = new Date(today.getFullYear() - 150, today.getMonth(), today.getDate());
   
-      if (eighteenYearsAgo < selectedDate || selectedDate <onehundredfiftyYearsAgo ) {
-       
-        alert("Please select a date of birth that makes you at least 18 years old and max 150 years old.");
-        setFormData({
-          ...formData,
-          date_of_birth: '', 
-        });
-        
-      }
-     
-    }
   };
   const handleReset = () => {
     setFormData(initialFormData);
