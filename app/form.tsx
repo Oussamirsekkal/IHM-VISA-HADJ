@@ -12,16 +12,7 @@ interface FormComponentProps {
 }
 
 
-function formatDate(dateString :Date) {
-  if (!dateString) return '';
-  
-  const date = new Date(dateString);
-  const year = date.getFullYear().toString().slice(-2);
-  const month = ('0' + (date.getMonth() + 1)).slice(-2);
-  const day = ('0' + date.getDate()).slice(-2);
-  
-  return `${year}/${month}/${day}`;
-}
+
 const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
   const [formData, setFormData] = useState({
     first_name: '',
@@ -87,6 +78,55 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
     setFormData(initialFormData);
   };
 
+  const validateAge = (dateOfBirth: string) => {
+    const currentDate = new Date();
+    const selectedDate = new Date(dateOfBirth);
+    const minDate = new Date(currentDate);
+    minDate.setFullYear(minDate.getFullYear() - 150); 
+    const maxDate = new Date(currentDate);
+    maxDate.setFullYear(maxDate.getFullYear() - 18); 
+
+    return selectedDate >= minDate && selectedDate <= maxDate;
+  };
+
+  // Function to handle the date of birth change
+  const handleDateOfBirthChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+
+    if (validateAge(value)) {
+      setFormData({
+        ...formData,
+        date_of_birth: value,
+      });
+    } else {
+    
+      alert('Please enter a valid date of birth between 18 and 150 years old.');
+      setFormData({
+        ...formData,
+        date_of_birth: "",
+      });
+    }
+  };
+  const religionSects: Record<string, string[]> = {
+    Islam: ['Sunna', 'Shia'],
+    Christianity: ['Catholic', 'Protestant', 'Orthodox'],
+    Judaism: ['Orthodox', 'Conservative', 'Reform'],
+  
+  };
+  
+  function handleReligionChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    const selectedReligion = event.target.value;
+ 
+    if (selectedReligion && religionSects[selectedReligion]) {
+      const defaultSect = religionSects[selectedReligion][0];
+  
+      setFormData({
+        ...formData,
+        religion: selectedReligion,
+        sect: defaultSect,
+      });
+    }
+  }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -102,7 +142,19 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
       console.error('Error inserting data:', error);
     }
   };
-
+  
+  function handleSectChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    const selectedSect = event.target.value;
+  
+    setFormData({
+      ...formData,
+      sect: selectedSect,
+    });
+  }
+  const formatToCustomFormat = (dateString: string) => {
+    const [month, day, year] = dateString.split('/');
+    return `${year}/${day}/${month}`;
+  };
 
  
   return (
@@ -157,16 +209,16 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
           </div>
 
           <div className="p-2">
-          <label className="text-sm">Date of Birth:</label>
-          <input
-    type="date"
-    className="border rounded p-2 w-full"
-    name="date_of_birth"
-    value={formData.date_of_birth}
-    required
-    onChange={handleChange}
-  />
-          </div>
+        <label className="text-sm">Date of Birth:</label>
+        <input
+          type="date"
+          className="border rounded p-2 w-full"
+          name="date_of_birth"
+          value={formData.date_of_birth}
+          required
+          onChange={handleDateOfBirthChange}
+        />
+      </div>
 
           <div className="p-2">
             <label className="text-sm">Place of Birth:</label>
@@ -634,40 +686,55 @@ const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
 
           <div className="p-2">
             <label className="text-sm">Status:</label>
-            <input
-              type="text"
+            <select  
               className="border rounded p-2 w-full"
-              pattern="[A-Za-z]+"
               name="status"
               value={formData.status}
-              onChange={handleChange}
-            />
+              onChange={handleSelectChange}>
+                <option value="single"> Single</option>
+                <option value="married">Married</option>
+                <option value="divorced">Divorced</option>
+             
+              </select>
           </div>
+
+        
 
           <div className="p-2">
-            <label className="text-sm">Sect:</label>
-            <input
-              type="text"
-              className="border rounded p-2 w-full"
-              pattern="[A-Za-z]+"
-              name="sect"
-              value={formData.sect}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="p-2">
-            <label className="text-sm">Religion:</label>
-            <input
-              type="text"
-              className="border rounded p-2 w-full"
-              name="religion"
-              pattern="[A-Za-z]+"
-              value={formData.religion}
-              onChange={handleChange}
-            />
-          </div>
-
+  <label className="text-sm">Religion:</label>
+  <select
+    className="border rounded p-2 w-full"
+    name="religion"
+    value={formData.religion}
+    onChange={handleReligionChange}
+  >
+    <option value="">Select Religion</option>
+    {Object.keys(religionSects).map((religion) => (
+      <option key={religion} value={religion}>
+        {religion}
+      </option>
+    ))}
+  </select>
+</div>
+<div className="p-2">
+  <label className="text-sm">Sect:</label>
+  <select
+    className="border rounded p-2 w-full"
+    name="sect"
+    value={formData.sect}
+    onChange={handleSectChange}
+  >
+    {formData.religion && religionSects[formData.religion] ? (
+      religionSects[formData.religion].map((sect) => (
+        <option key={sect} value={sect}>
+          {sect}
+        </option>
+      ))
+    ) : (
+      <option value="">Select Religion First</option>
+    )}
+  </select>
+</div>
           <div className="p-2">
             <label className="text-sm">Place of Issue:</label>
             <input
