@@ -17,6 +17,7 @@ const Home = () => {
 
 
   const handleNext = () => {
+    
     setCurrentForm((prev) => prev + 1);
   };
   const handleprev = () => {
