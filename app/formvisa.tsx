@@ -10,7 +10,7 @@ interface FormComponentProps {
 }
 
 
-const FormComponentvisa : FC<FormComponentProps> = ({ onNext },{onPrev})=> {
+const FormComponentvisa: FC<FormComponentProps> = ({ onNext, onPrev }) => {
   return (
     <div id="Div" className="p-2">
       <div className="flex flex-col items-center"> {}
