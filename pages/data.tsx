@@ -33,15 +33,15 @@ const DataPage = ({ cartData }: DataProps) => {
     return (
       <main>
         <Navbar />
-        <div className="flex justify-center items-center h-screen pt-0">
+        <div className="flex justify-center items-center h-screen pt-0 mt-0">
           <div className="w-full lg:w-11/12 xl:w-10/12 p-6 text-center">
-            <h1 className="text-3xl font-bold mb-6">Data from SQL Database</h1>
+            <h1 className="text-3xl font-bold mb-6">Your Data is here !</h1>
             {cartData.length > 0 ? (
               <div className="overflow-x-auto">
                 <table className="w-full bg-white shadow-md rounded-lg overflow-hidden">
-                  {/* Table headers and rows */}
+           
                   <thead className="bg-gray-200 text-gray-700">
-                    {/* Header rows */}
+                   
                     <tr>
                 <th className="py-3 px-6 text-left">First Name</th>
                 <th className="py-3 px-6 text-left">Full Name</th>
@@ -64,7 +64,7 @@ const DataPage = ({ cartData }: DataProps) => {
               </tr>
                   </thead>
                   <tbody className="text-gray-600">
-                    {/* Data rows */}
+                   
                     {cartData.map((item) => (
                 <tr key={item.id} className="hover:bg-gray-100">
                   <td className="py-4 px-6">{item.first_name}</td>
@@ -91,7 +91,7 @@ const DataPage = ({ cartData }: DataProps) => {
                 </table>
               </div>
             ) : (
-              <p>Loading data...</p>
+              <p>Database is waiting to be filled...</p>
             )}
           </div>
         </div>

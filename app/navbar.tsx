@@ -30,61 +30,60 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between items-center w-full h-15 px-4 text-white bg-emerald-800 fixed top-0">
-      <div className="flex items-center">
-        {/* Add your logo image here */}
-        <img src="/IHM.png" alt="Logo" className="h-10 mr-2" />
-        <h1 className="text-xl font-signature">
-          <a
-            className="link-underline link-underline-black"
-            href="/"
-          
-            rel="noreferrer"
-          >
-            Visa Hadj
-          </a>
-        </h1>
-      </div>
+    <nav className="bg-emerald-800 text-white">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-center py-4">
+          <div className="flex items-center">
+       
+            <img src="/IHM.png" alt="Logo" className="h-10 mr-2" />
+            <h1 className="text-xl font-signature">
+              <Link  className="link-underline link-underline-black" href="/">
+                Visa Hadj
+              </Link>
+            </h1>
+          </div>
 
-      <ul className="hidden md:flex space-x-6">
-        {links.map(({ id, link, url }) => (
-          <li
-            key={id}
-            className="nav-links px-4 cursor-pointer capitalize font-medium text-white-500 hover:scale-105 hover:text-black duration-200 link-underline"
-          >
-            <Link href={url}>{link}</Link>
-          </li>
-        ))}
-      </ul>
+          <div className="hidden md:flex items-center space-x-6">
+            {links.map(({ id, link, url }) => (
+              <Link className="capitalize font-medium hover:text-black transition duration-200" key={id} href={url}>
+              
+                  {link}
+                
+              </Link>
+            ))}
+          </div>
 
-      <div
-        onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-gray-500 md:hidden"
-      >
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-      </div>
-
-      <div className="flex items-center space-x-4">
-        <button
-          onClick={handleLanguageSwitch}
-          className="text-white px-3 py-2 rounded-full border border-white focus:outline-none focus:border-opacity-0 focus:border-emerald-500 hover:bg-opacity-80"
-        >
-          {language === "en" ? "عربية" : "English"}
-        </button>
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={handleLanguageSwitch}
+              className="px-3 py-2 rounded-full border border-white focus:outline-none focus:border-opacity-0 focus:border-emerald-500 hover:bg-opacity-80"
+            >
+              {language === "en" ? "عربية" : "English"}
+            </button>
+            <div
+              onClick={() => setNav(!nav)}
+              className="md:hidden cursor-pointer"
+            >
+              {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+            </div>
+          </div>
+        </div>
       </div>
 
       {nav && (
-        <ul className="flex flex-col justify-center items-center fixed top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-green-800 text-gray-500">
-          {links.map(({ id, link, url }) => (
-            <li key={id} className="px-4 cursor-pointer capitalize py-6 text-4xl">
-              <Link href={url}>
-                {link}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="md:hidden bg-gradient-to-b from-black to-green-800 text-white">
+          <ul className="flex flex-col items-center py-8">
+            {links.map(({ id, link, url }) => (
+              <li key={id} className="py-4">
+                <Link className="text-2xl" href={url}>
+                  {link}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
-    </div>
+    </nav>
   );
 };
 
