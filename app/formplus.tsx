@@ -2,9 +2,13 @@
 "use client"
 import React, { useState, ChangeEvent } from 'react';
 import Image from 'next/image';
+import { FC } from 'react'; // Import FC (Functional Component) type
+interface FormComponentProps {
 
+  onPrev: () => void;
+}
 
-const FormComponentplus = () => {
+const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
     const maxRows = 5;
     const [currentRow, setCurrentRow] = useState(0);
   
@@ -146,11 +150,17 @@ const FormComponentplus = () => {
   <input type="text" className="border rounded ml-2  p-2 w-3/4" />
 </div>
           </div>
-
           <div className="p-2 flex justify-end">
-            <button className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded">
+          <div className="p-2 flex justify-end space-x-2">
+
+          <button 
+           className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded" onClick={onPrev}>Previous</button>
+        <button className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded">
              Submit
             </button>
+        
+
+          </div>
           </div>
         </form>
       </div>

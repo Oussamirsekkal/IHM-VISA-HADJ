@@ -9,11 +9,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 interface FormComponentProps {
   onNext: () => void;
+ 
+  
 }
 
 
 
-const FormComponent: FC<FormComponentProps> = ({ onNext }) => {
+const FormComponent: FC<FormComponentProps> = ({ onNext } ) => {
   const [formData, setFormData] = useState({
     first_name: '',
     full_name: '',

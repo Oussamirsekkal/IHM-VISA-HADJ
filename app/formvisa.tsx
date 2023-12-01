@@ -6,10 +6,11 @@ import React, { FC } from 'react'; // Import FC (Functional Component) type
 
 interface FormComponentProps {
   onNext: () => void; // Define the type of onNext prop
+  onPrev: () => void;
 }
 
 
-const FormComponentvisa : FC<FormComponentProps> = ({ onNext })=> {
+const FormComponentvisa : FC<FormComponentProps> = ({ onNext },{onPrev})=> {
   return (
     <div id="Div" className="p-2">
       <div className="flex flex-col items-center"> {}
@@ -103,16 +104,27 @@ const FormComponentvisa : FC<FormComponentProps> = ({ onNext })=> {
             <label className="text-sm">Carier's name:</label>
             <input type="text" className="border rounded p-2 w-full" />
           </div>
-
+           
           <div className="p-2">
             <label className="text-sm">Destination:</label>
             <input type="text" className="border rounded p-2 w-full" />
           </div>
       </div> 
+        
+          
           <div className="p-2 flex justify-end">
+          <div className="p-2 flex justify-end space-x-2">
+
+          <button 
+           className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded" onClick={onPrev}>Previous</button>
           <button
            className="bg-green-500 hover:bg-blue-700 text-white font-bold py-0.5 px-4 rounded" onClick={onNext}>Next</button>
+        
+
           </div>
+          </div>
+         
+          
         
         </form>
       </div>

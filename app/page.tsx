@@ -19,14 +19,17 @@ const Home = () => {
   const handleNext = () => {
     setCurrentForm((prev) => prev + 1);
   };
+  const handleprev = () => {
+    setCurrentForm((prev) => prev - 1);
+  };
 
   return (
     <main>
       <br />
    
       {currentForm === 0 && <FormComponent onNext={handleNext} />}
-      {currentForm === 1 && <FormComponentvisa onNext={handleNext} />}
-      {currentForm === 2 && <FormComponentplus />}
+      {currentForm === 1 && <FormComponentvisa onNext={handleNext}  onPrev={handleprev} />}
+      {currentForm === 2 && <FormComponentplus onPrev={handleprev} />}
    
     
     </main>
