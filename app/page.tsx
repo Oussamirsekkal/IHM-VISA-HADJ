@@ -1,7 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import {gsap} from 'gsap';
-
 import FormComponent from './form';
 import FormComponentvisa from './formvisa';
 import FormComponentplus from './formplus';
@@ -19,10 +18,10 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // GSAP animation
+  
     const spans = document.querySelectorAll('.step');
   
-    // Set initial opacity of all spans to 0.5
+ 
     gsap.set(spans, { opacity: 0.5 });
   
     gsap.to(spans, {
