@@ -56,7 +56,7 @@ const Home = () => {
           {renderProgressCircles()}
         </div>
         <div className="flex justify-between mt-2">
-          <span className="text-sm text-gray-500">Personal information</span>
+          <span className="text-sm text-gray-500">Personal informations</span>
           <span className="text-sm text-gray-500">Trip details</span>
           <span className="text-sm text-gray-500">Finalize</span>
         </div>
