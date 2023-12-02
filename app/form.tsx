@@ -165,11 +165,8 @@ const FormComponent: FC<FormComponentProps> = ({ onNext } ) => {
     
     <div id="Div" className="p-2">
       <div className="flex flex-col items-center">
-        <div className="text-center py-4">
-          <Image src="/IHM.png" alt="Logo" width={80} height={60} />
-        </div>
+      
        
-      {/* Your form */}
       <form id="Formulaire" className="bg-white p-4" onSubmit={handleSubmit}>
       
         <div className="grid grid-cols-2 gap-4">
