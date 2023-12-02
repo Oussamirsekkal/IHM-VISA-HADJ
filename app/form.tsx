@@ -5,6 +5,7 @@ import axios from 'axios'; // HTTP requests
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { gsap } from "gsap";
 
 
 interface FormComponentProps {

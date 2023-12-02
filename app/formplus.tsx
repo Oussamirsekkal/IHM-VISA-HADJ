@@ -17,7 +17,7 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
       columnIndex: number,
       e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
     ) => {
-      // Handle input change logic here if needed
+      
   
       if (columnIndex === 3 && rowIndex < maxRows - 1) {
         setCurrentRow(rowIndex + 1);
