@@ -33,7 +33,11 @@ const Home = () => {
         gsap.to(spans[currentForm], { opacity: 2, duration: 0.5 });
       },
     });
+    if (currentForm === 0 || currentForm === 1 || currentForm === 2) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, [currentForm]);
+
 
   const totalForms = 3;
   const progressBarStyle = 'w-full h-2 bg-gray-200 rounded overflow-hidden';
