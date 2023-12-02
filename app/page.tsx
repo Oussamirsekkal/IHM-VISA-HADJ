@@ -11,12 +11,12 @@ const Home = () => {
 
   const handleNext = () => {
     setCurrentForm((prev) => prev + 1);
-    window.scrollTo({ top: -10, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handlePrev = () => {
     setCurrentForm((prev) => prev - 1);
-    window.scrollTo({ top: -10, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
