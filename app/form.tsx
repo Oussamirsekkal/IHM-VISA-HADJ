@@ -15,7 +15,6 @@ interface FormComponentProps {
 }
 
 
-
 const FormComponent: FC<FormComponentProps> = ({ onNext } ) => {
   const [formData, setFormData] = useState({
     first_name: '',
@@ -92,7 +91,6 @@ const FormComponent: FC<FormComponentProps> = ({ onNext } ) => {
     return selectedDate >= minDate && selectedDate <= maxDate;
   };
 
-  // Function to handle the date of birth change
   const handleDateOfBirthChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
