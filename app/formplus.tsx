@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { FC } from 'react'; // Import FC (Functional Component) type
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer } from 'react-toastify';
 interface FormComponentProps {
 
   onPrev: () => void;
@@ -99,10 +99,21 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
             className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300"
           
           />
-        ) : (
+        ) :  columnIndex === 2 ? (
+          <select
+            className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300 w-30"
+   
+          >
+            <option value="father">Male</option>
+            <option value="son">Female</option>
+         
+          </select>
+        ) :
+       
+        (
           <input
             type="text"
-            className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300"
+            className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300 w-50"
 
           />
         )}
