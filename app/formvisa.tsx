@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image'; 
 import React, { FC } from 'react'; // Import FC (Functional Component) type
+import { useFormData } from './datacontext';
 
 interface FormComponentProps {
   onNext: () => void; // Define the type of onNext prop
@@ -11,6 +12,10 @@ interface FormComponentProps {
 
 
 const FormComponentvisa: FC<FormComponentProps> = ({ onNext, onPrev }) => {
+  const { formData } = useFormData();
+
+  // Disable input if sex is male
+  const isMale = formData.sex === 'male';
   return (
     <div id="Div" className="p-2">
       <div className="flex flex-col items-center"> {}
@@ -92,7 +97,7 @@ const FormComponentvisa: FC<FormComponentProps> = ({ onNext, onPrev }) => {
 
           <div className="p-2">
             <label className="text-sm">mahram:</label>
-            <input type="text" className="border rounded p-2 w-full" />
+            <input type="text" className="border rounded p-2 w-full" disabled={isMale} />
           </div>
 
           <div className="p-2">
