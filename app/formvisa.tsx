@@ -88,11 +88,13 @@ const FormComponentvisa: FC<FormComponentProps> = ({ onNext, onPrev }) => {
             </select>
           </div>
 
-          <div className="p-2 grid grid-cols-2">
+          <div className="p-2">
                 <label>Cheque No /Receipt No</label>
-                <label className='ml-2'>Date</label>
                 <input type="number" className="border rounded p-2 w-full"/>
-                <input className='ml-2' type='Date'/>
+          </div>
+          <div className="p-2 ">
+                <label >Date</label>
+                <input className="border rounded p-2 w-full" type='Date'/>
           </div>
 
           <div className="p-2">
