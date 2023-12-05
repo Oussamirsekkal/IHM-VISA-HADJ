@@ -3,28 +3,46 @@
 import React, { useState, ChangeEvent } from 'react';
 import Image from 'next/image';
 import { FC } from 'react'; // Import FC (Functional Component) type
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 interface FormComponentProps {
 
   onPrev: () => void;
 }
 
 const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
-    const maxRows = 5;
-    const [currentRow, setCurrentRow] = useState(0);
-  
-    const handleInputChange = (
-      rowIndex: number,
-      columnIndex: number,
-      e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-    ) => {
-      
-  
-      if (columnIndex === 3 && rowIndex < maxRows - 1) {
-        setCurrentRow(rowIndex + 1);
+  const maxRows = 5;
+  const [rows, setRows] = useState([{}]); 
+  const handleAddRow = () => {
+    if (rows.length < maxRows) {
+      const newRow = { relationship: '', dob: '', sex: '', fullName: '' }; 
+      setRows([...rows, newRow]);
+    }
+  };
+
+  const handleEditRow = (index: number) => {
+   
+    console.log(`Editing row at index ${index}`);
+  };
+
+  const handleDeleteRow = (index: number) => {
+
+    if (rows.length > 1) {
+      const updatedRows = rows.filter((_, i) => i !== index);
+      setRows(updatedRows);
+    } else {
+      const confirmed = window.confirm('Are you sure you want to delete the last row?');
+      if (confirmed) {
+        const updatedRows = rows.filter((_, i) => i !== index);
+        setRows(updatedRows);
       }
-      };
+    }
+  };
+
   return (
     <div id="Div" className="p-2">
+      
       <div className="flex flex-col items-center">
         <div className="text-center py-4">
           <Image src="/IHM.png" alt="Logo" width={80} height={60} />
@@ -54,37 +72,70 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
             </th>
           </tr>
         </thead>
+        
         <tbody>
-          {[...Array(maxRows)].map((_, rowIndex) => (
-            <tr key={rowIndex} style={{ display: rowIndex <= currentRow ? 'table-row' : 'none' }}>
-              {[...Array(4)].map((_, columnIndex) => (
-                <td key={columnIndex} className="px-6 py-4 whitespace-nowrap">
-                  {columnIndex === 2 ? ( // For the "Sex" column
-                    <select
-                      className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300"
-                      onChange={(e) => handleInputChange(rowIndex, columnIndex, e)}
-                    >
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                    </select>
-                  ) : columnIndex === 1 ? ( // For the "Date of Birth" column
-                    <input
-                      type="date"
-                      className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300"
-                      onChange={(e) => handleInputChange(rowIndex, columnIndex, e)}
-                    />
-                  ) : (
-                    <input
-                      type="text"
-                      className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300"
-                      onChange={(e) => handleInputChange(rowIndex, columnIndex, e)}
-                    />
-                  )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
+        {rows.map((_, rowIndex) => (
+  <tr key={rowIndex}>
+    {[...Array(4)].map((_, columnIndex) => (
+      <td key={columnIndex} className="px-6 py-4 whitespace-nowrap">
+        {columnIndex === 0 ? (
+          <select
+            className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300 w-30"
+   
+          >
+            <option value="father">Father</option>
+            <option value="son">Mother</option>
+            <option value="son">Son</option>
+            <option value="uncle">Uncle</option>
+            <option value="uncle">Wife</option>
+            <option value="cousin">Cousin</option>
+            <option value="sister">Sister</option>
+            <option value="daughter">Daughter</option>
+         
+          </select>
+        ) : columnIndex === 1 ? (
+          <input
+            type="date"
+            className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300"
+          
+          />
+        ) : (
+          <input
+            type="text"
+            className="border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring focus:border-blue-300"
+
+          />
+        )}
+      </td>
+    ))}
+    <td className="px-6 py-4 whitespace-nowrap">
+      <div className="flex items-center space-x-2">
+        <button
+          type="button"
+          onClick={() => handleAddRow()}
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded"
+        >
+          Add
+        </button>
+        <button
+          type="button"
+          onClick={() => handleEditRow(rowIndex)}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded"
+        >
+          Edit
+        </button>
+        <button
+          type="button"
+          onClick={() => handleDeleteRow(rowIndex)}
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
+        >
+          Delete
+        </button>
+      </div>
+    </td>
+  </tr>
+))}
+      </tbody>
       </table>
     </div>
             </div>
@@ -170,6 +221,7 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
           </div>
           </div>
         </form>
+   
       </div>
     </div>
   );

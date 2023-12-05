@@ -5,6 +5,8 @@ import FormComponent from './form';
 import FormComponentvisa from './formvisa';
 import FormComponentplus from './formplus';
 import { FormDataProvider } from './datacontext';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const [currentForm, setCurrentForm] = useState(0);
