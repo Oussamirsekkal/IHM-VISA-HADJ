@@ -193,7 +193,7 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
                 <input type="text" className="border rounded ml-2 p-2 w-full" />
                 
           </div>
-          <div className="p-2 grid grid-cols-1">
+          <div className="p-2 grid">
                 <label>Visit/work for:</label>
                 <select className="border rounded p-2 w-1/4">
   <option value="Work Traffic">Work Traffic</option>
