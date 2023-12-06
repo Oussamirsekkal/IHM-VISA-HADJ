@@ -195,7 +195,7 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
           </div>
           <div className="p-2 grid">
                 <label>Visit/work for:</label>
-                <select className="border rounded p-2 w-1/4">
+                <select className="border rounded p-2 w-2/5">
   <option value="Work Traffic">Work Traffic</option>
   <option value="Visit">Visit</option>
   <option value="Omra">Omra</option>
