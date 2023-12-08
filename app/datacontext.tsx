@@ -1,22 +1,20 @@
 import React, { ReactNode, createContext, useContext, useState } from 'react';
 
-
 type FormData = {
   sex: string;
- 
+  religion: string;
 };
 
-
 const FormDataContext = createContext<{ formData: FormData; updateFormData: (data: Partial<FormData>) => void }>({
-  formData: { sex: '' },
+  formData: { sex: '', religion: '' },
   updateFormData: () => {},
 });
 
 export const FormDataProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [formData, setFormData] = useState<FormData>({ sex: '' });
+  const [formData, setFormData] = useState<FormData>({ sex: '', religion: '' });
 
   const updateFormData = (data: Partial<FormData>) => {
-    setFormData({ ...formData, ...data });
+    setFormData((prevFormData) => ({ ...prevFormData, ...data }));
   };
 
   return (

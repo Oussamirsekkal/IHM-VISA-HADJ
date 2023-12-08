@@ -3,15 +3,20 @@
 import React, { useState, ChangeEvent } from 'react';
 import Image from 'next/image';
 import { FC } from 'react'; // Import FC (Functional Component) type
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
+import { useFormData } from './datacontext';
 interface FormComponentProps {
 
   onPrev: () => void;
 }
 
-const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
+const FormComponentplus :  FC<FormComponentProps> = ({onPrev} )=> {
+  const { formData } = useFormData();
+ 
+  const ismuslim = formData.religion === 'Islam';
+  console.log('Is Muslim:', ismuslim);
+  
+
   const maxRows = 5;
   const [rows, setRows] = useState([{}]); 
   const handleAddRow = () => {
@@ -39,6 +44,7 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
       }
     }
   };
+
 
   return (
     <div id="Div" className="p-2">
@@ -193,17 +199,18 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev})=> {
                 <input type="text" className="border rounded ml-2 p-2 w-full" />
                 
           </div>
-          <div className="p-2 grid">
-                <label>Visit/work for:</label>
-                <select className="border rounded p-2 w-2/5">
+          <select className="border rounded p-2 w-2/5">
   <option value="Work Traffic">Work Traffic</option>
   <option value="Visit">Visit</option>
-  <option value="Omra">Omra</option>
+  {ismuslim && (
+    <>
+      <option value="Omra">Omra</option>
+      <option value="Hadj">Hadj</option>
+    </>
+  )}
   <option value="Residence">Residence</option>
-  <option value="Hadj">Hadj</option>
   <option value="Diplomacy">Diplomacy</option>
 </select>
-          </div>
           <div className="p-2 grid grid-cols-2">
                 <label>Date:</label>
                 <label className='ml-2'>Visa N=°:</label>

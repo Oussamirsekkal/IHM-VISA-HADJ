@@ -84,7 +84,7 @@ const Home = () => {
 
         {currentForm === 0 && <FormComponent onNext={handleNext} />}
         {currentForm === 1 && <FormComponentvisa onNext={handleNext} onPrev={handlePrev} />}
-        {currentForm === 2 && <FormComponentplus onPrev={handlePrev} />}
+        {currentForm === 2 && <FormComponentplus onPrev={handlePrev}  />}
       </main>
     </FormDataProvider>
   );
