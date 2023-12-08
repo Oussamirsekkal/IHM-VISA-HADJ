@@ -7,7 +7,8 @@ import FormComponentplus from './formplus';
 import { FormDataProvider } from './datacontext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+//added 1-if religion!=muslim =>!hadj&& !omra
+//2-add /delete in visitors in the same trip
 const Home = () => {
   const [currentForm, setCurrentForm] = useState(0);
 
