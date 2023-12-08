@@ -137,7 +137,7 @@ const DataPage = ({ cartData: initialCartData }: DataProps) => {
                       <td className="py-4 px-6">
                         <button
                           onClick={() => handleEdit(item.id)}
-                          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded mb-2 mr-2"
+                          className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded mb-2 mr-2"
                         >
                           Edit
                         </button>
