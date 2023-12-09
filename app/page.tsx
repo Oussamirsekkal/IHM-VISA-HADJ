@@ -9,6 +9,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //added 1-if religion!=muslim =>!hadj&& !omra
 //2-add /delete in visitors in the same trip
+//3-add admin panel edit/delete in data page
 const Home = () => {
   const [currentForm, setCurrentForm] = useState(0);
 
