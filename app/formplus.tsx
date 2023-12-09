@@ -26,10 +26,10 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev} )=> {
     }
   };
 
-  const handleEditRow = (index: number) => {
+ // const handleEditRow = (index: number) => {
    
-    console.log(`Editing row at index ${index}`);
-  };
+   // console.log(`Editing row at index ${index}`);
+  //};
 
   const handleDeleteRow = (index: number) => {
 
@@ -134,13 +134,7 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev} )=> {
         >
           Add
         </button>
-        <button
-          type="button"
-          onClick={() => handleEditRow(rowIndex)}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded"
-        >
-          Edit
-        </button>
+      
         <button
           type="button"
           onClick={() => handleDeleteRow(rowIndex)}
