@@ -150,7 +150,7 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
 
           <label className="block mt-4">
   <span className="text-gray-700">Full Name:</span>
-  <input
+  {rowData && rowData.full_name && ( <input
     type="text"
     name="full_name"
     value={editedData.full_name}
@@ -158,43 +158,43 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
     onChange={handleInputChange}
     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
     required 
-  />
+  />)}
 </label>
           <label className="block mt-4">
   <span className="text-gray-700">Mother Name:</span>
-  <input
+  {rowData && rowData.mother_name && (<input
     type="text"
     name="mother_name"
     pattern="[A-Za-z]+"
     value={editedData.mother_name}
     onChange={handleInputChange}
     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-  />
+  />)}
 </label>
           <label className="block mt-4">
   <span className="text-gray-700">Date of Birth:</span>
-  <input
+  {rowData && rowData.date_of_birth && (<input
     type="date"
     name="date_of_birth"
     value={editedData.date_of_birth}
     onChange={handleInputChange}
     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-  />
+  />)}
 </label>
           <label className="block mt-4">
             <span className="text-gray-700">Place of Birth:</span>
-            <input
+            {rowData && rowData.place_of_birth && ( <input
               type="text"
               name="place_of_birth"
               value={editedData.place_of_birth}
               onChange={handleInputChange}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            />
+            />)}
           </label>
 
           <label className="block mt-4">
             <span className="text-gray-700">Previous Nationality:</span>
-            <select
+            {rowData && rowData.previous_nationality && ( <select
               name="previous_nationality"
               value={editedData.previous_nationality}
               onChange={handleInputChange} 
@@ -209,11 +209,12 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
       </option>
     ))}
             </select>
+            )}
           </label>
 
           <label className="block mt-4">
             <span className="text-gray-700">Present Nationality:</span>
-            <select
+            {rowData && rowData.present_nationality && (<select
               name="present_nationality"
               value={editedData.present_nationality}
               onChange={handleInputChange} 
@@ -226,6 +227,7 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
     ))}
             
             </select>
+            )}
           </label>
           <label className="block mt-4">
   <span className="text-gray-700">Sex:</span>
@@ -236,7 +238,7 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
         className="form-radio border-gray-300 text-indigo-600"
         name="sex"
         value="male"
-        checked={editedData.sex === "male"}
+        checked={rowData && rowData.sex === "male"}
         onChange={handleInputChange}
       />
       <span className="ml-2">Male</span>
@@ -247,7 +249,7 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
         className="form-radio border-gray-300 text-indigo-600"
         name="sex"
         value="female"
-        checked={editedData.sex === "female"}
+        checked={rowData && rowData.sex === "female"}
         onChange={handleInputChange}
       />
       <span className="ml-2">Female</span>
@@ -257,7 +259,7 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
 <label className="block mt-4">
   <span className="text-gray-700">Status:</span>
   <div className="mt-2">
-    <select
+  {rowData && rowData.status && (<select
       name="status"
       value={editedData.status}
       onChange={handleInputChange}
@@ -267,12 +269,13 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
       <option value="married">Married</option>
       <option value="divorced">Divorced</option>
     </select>
+  )}
   </div>
 </label>
 <label className="block mt-4">
   <span className="text-gray-700">Religion:</span>
   <div className="mt-2">
-    <select
+  {rowData && rowData.religion && (<select
       name="religion"
       value={editedData.religion}
       onChange={handleInputChange}
@@ -284,12 +287,13 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
         </option>
       ))}
     </select>
+  )}
   </div>
 </label>
 <label className="block mt-4">
   <span className="text-gray-700">Sect:</span>
   <div className="mt-2">
-    <select
+  {rowData && rowData.sect && ( <select
       name="sect"
       value={editedData.sect}
       onChange={handleSectChange}
@@ -309,11 +313,12 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
         <option value="">No Religion Selected</option>
       )}
     </select>
+  )}
   </div>
 </label>
 <label className="block mt-4">
   <span className="text-gray-700">Place of Issue:</span>
-  <input
+  {rowData && rowData.place_of_issue && (<input
     type="text"
     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
     name="place_of_issue"
@@ -321,20 +326,22 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
     value={editedData.place_of_issue}
     onChange={handleInputChange}
   />
+  )}
 </label>
 <label className="block mt-4">
   <span className="text-gray-700">Qualification:</span>
-  <input
+  {rowData && rowData.qualification && ( <input
     type="text"
     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
     name="qualification"
     value={editedData.qualification}
     onChange={handleInputChange}
   />
+  )}
 </label>
 <label className="block mt-4">
   <span className="text-gray-700">Profession:</span>
-  <input
+  {rowData && rowData.profession && ( <input
     type="text"
     className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
     name="profession"
@@ -342,20 +349,22 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
     value={editedData.profession}
     onChange={handleInputChange}
   />
+  )}
 </label>
 <div className="p-2">
   <label className="text-sm">Address:</label>
-  <input
+  {rowData && rowData.address && (<input
     type="text"
     className="border rounded p-2 w-full"
     name="address"
     value={editedData.address}
     onChange={handleInputChange}
   />
+  )}
 </div>
 <div className="p-2">
   <label className="text-sm">Phone Number:</label>
-  <input
+  {rowData && rowData.phone_number && ( <input
     type="tel"
     className="border rounded p-2 w-full"
     name="phone_number"
@@ -365,20 +374,22 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
     placeholder="Enter phone number"
     required
   />
+  )}
 </div>
 <div className="p-2">
   <label className="text-sm">Business Address:</label>
-  <input
+  {rowData && rowData.business_address && (<input
     type="text"
     className="border rounded p-2 w-full"
     name="business_address"
     value={editedData.business_address}
     onChange={handleInputChange}
   />
+  )}
 </div>
 <div className="p-2">
   <label className="text-sm">Business Phone Number:</label>
-  <input
+  {rowData && rowData.business_phone_number && (<input
     type="tel"
     className="border rounded p-2 w-full"
     name="business_phone_number"
@@ -388,6 +399,7 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
     placeholder="Enter phone number"
     required
   />
+  )}
 </div>
 
 
