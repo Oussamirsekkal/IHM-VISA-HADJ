@@ -44,7 +44,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext } ) => {
     mother_name: '',
     date_of_birth: '',
     place_of_birth: '',
-    previous_nationality: 'Algerian',
+ previous_nationality: 'Algerian',
     present_nationality: 'Algerian',
     sex: 'male',
     status: 'single',

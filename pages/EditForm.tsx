@@ -238,7 +238,7 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
         className="form-radio border-gray-300 text-indigo-600"
         name="sex"
         value="male"
-        checked={rowData && rowData.sex === "male"}
+        checked={editedData && editedData.sex === "male" }
         onChange={handleInputChange}
       />
       <span className="ml-2">Male</span>
@@ -249,7 +249,7 @@ const EditForm: React.FC<EditFormProps> = ({ rowData, onCancel, onSave }) => {
         className="form-radio border-gray-300 text-indigo-600"
         name="sex"
         value="female"
-        checked={rowData && rowData.sex === "female"}
+        checked={editedData && editedData.sex === "female" }
         onChange={handleInputChange}
       />
       <span className="ml-2">Female</span>
