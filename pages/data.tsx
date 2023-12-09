@@ -3,6 +3,11 @@ import Navbar from '../app/navbar';
 import Footer from '../app/footer';
 import { GetServerSideProps } from 'next';
 import React, { useState } from 'react';
+import EditForm  from './EditForm';
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 interface DataProps {
   cartData: Array<{
@@ -50,10 +55,8 @@ const DataPage = ({ cartData: initialCartData }: DataProps) => {
     business_address: string;
     business_phone_number: string;
   }>>(initialCartData);
-  const handleEdit = (id :  number) => {
+  const [editingRow, setEditingRow] = useState<number | null>(null);
 
-    console.log(`Edit row with ID: ${id}`);
-  };
 
   const handleDelete = async (id: number )=> {
     try {
@@ -78,6 +81,72 @@ const DataPage = ({ cartData: initialCartData }: DataProps) => {
     } catch (error) {
       console.error('Error while deleting:', error);
     }
+  };
+  const handleEdit = (id: number) => {
+    setEditingRow(id);
+  };
+
+  const handleCancelEdit = () => {
+    setEditingRow(null); 
+  };
+
+  const handleApplyEdit = async (updatedData: any) => {
+    try {
+   
+      const response = await fetch(`/api/update?id=${updatedData.id}`, { 
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData), 
+      });
+  
+      if (response.ok) {
+    
+        const updatedCartData = cartData.map((item) => {
+          if (item.id === updatedData.id) {
+       
+            return updatedData;
+          }
+          return item;
+        });
+  
+    
+        setCartData(updatedCartData);
+  
+  
+        setEditingRow(null);
+  
+        console.log('Data updated successfully ');
+        
+      } else {
+     
+        console.error('Failed to update data');
+      }
+    } catch (error) {
+   
+      console.error('Error updating data:', error);
+      console.error('Error updating database:', error);
+      console.error('Error updating data:', error);
+
+    }
+  };
+  
+  const renderEditForm = () => {
+    if (editingRow !== null) {
+      const rowData = cartData.find((item) => item.id === editingRow);
+
+      if (rowData) {
+        return (
+          <EditForm
+            rowData={rowData}
+            onCancel={handleCancelEdit}
+            onSave={handleApplyEdit}
+          />
+        );
+      }
+    }
+    return null;
   };
   const renderCartData = () => {
     return (
@@ -157,6 +226,8 @@ const DataPage = ({ cartData: initialCartData }: DataProps) => {
             <p>Database is waiting to be filled...</p>
           )}
         </div>
+        {renderEditForm()}
+          <ToastContainer />
       </main>
       <Footer />
     </div>
