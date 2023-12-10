@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+
 interface DataProps {
   cartData: Array<{
     id: number;
@@ -58,8 +59,13 @@ const DataPage = ({ cartData: initialCartData }: DataProps) => {
   const [editingRow, setEditingRow] = useState<number | null>(null);
 
 
-  const handleDelete = async (id: number )=> {
+  const handleDelete = async (id: number) => {
     try {
+      const confirmDelete = window.confirm("Are you sure you want to delete this item?");
+      if (!confirmDelete) {
+        return; // Do nothing if user cancels
+      }
+  
       const response = await fetch('/api/deletedata', {
         method: 'DELETE',
         headers: {
@@ -71,10 +77,13 @@ const DataPage = ({ cartData: initialCartData }: DataProps) => {
       if (response.ok) {
         console.log(`Row with ID ${id} has been deleted`);
         const updatedCartData = cartData.filter((item) => item.id !== id);
+        toast.success('Data deleted successfully', {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+        });
+  
         setCartData(updatedCartData);
-      
       } else {
-     
         const errorData = await response.json();
         console.error('Failed to delete:', errorData.error);
       }
@@ -154,7 +163,7 @@ const DataPage = ({ cartData: initialCartData }: DataProps) => {
       <Navbar />
       <main className="flex-1">
         <div className="w-full lg:w-11/12 xl:w-10/12 p-6 mx-auto text-center">
-          <h1 className="text-3xl font-bold mb-6">Your Data is here !</h1>
+          <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
           {cartData.length > 0 ? (
             <div className="overflow-x-auto">
               <table className="w-full bg-white shadow-md rounded-lg overflow-hidden">

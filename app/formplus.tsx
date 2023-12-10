@@ -14,7 +14,7 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev} )=> {
   const { formData } = useFormData();
  
   const ismuslim = formData.religion === 'Islam';
-  console.log('Is Muslim:', ismuslim);
+
   
 
   const maxRows = 5;

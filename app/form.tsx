@@ -160,8 +160,7 @@ const FormComponent: FC<FormComponentProps> = ({ onNext } ) => {
   }
 
   const { updateFormData } = useFormData();
-  console.log('Is Muslim:', formData.religion);
- 
+
 
  
   return (
