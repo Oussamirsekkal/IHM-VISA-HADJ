@@ -155,7 +155,7 @@ const FormComponentplus :  FC<FormComponentProps> = ({onPrev} )=> {
               <label className="text-md font-bold text-gray-700">
                 Name and address of company or individual in the kingdom:
               </label>
-              <input type="text" className="border rounded my-2 p-2 w-full" />
+              <input type="text" className="border rounded my-2 p-2 w-full"  />
               <input type="text" className="border rounded p-2 w-full" />
             </div>
 

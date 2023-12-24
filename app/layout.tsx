@@ -5,9 +5,13 @@ import Footer from './footer'; // Import your Footer component
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
+import { Metadata } from 'next';
 
 const inter = Inter({ subsets: ['latin'] });
-
+export const metadata: Metadata = {
+  title: 'tp ihm',
+  description: 'Sekkal',
+}
 export default function RootLayout({
   children,
 }: {
@@ -21,10 +25,10 @@ export default function RootLayout({
       </Head>
       <html lang="en">
         <body className={inter.className}>
-          <Navbar />
+         
           {children}
           <Analytics />
-          <Footer /> 
+       
         </body>
       </html>
     </>

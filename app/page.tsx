@@ -5,11 +5,12 @@ import FormComponent from './form';
 import FormComponentvisa from './formvisa';
 import FormComponentplus from './formplus';
 import { FormDataProvider } from './datacontext';
+import Navbar from '../app/navbar';
+import Footer from '../app/footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-//added 1-if religion!=muslim =>!hadj&& !omra
-//2-add /delete in visitors in the same trip
-//3-add admin panel edit/delete in data page
+
+
 const Home = () => {
   const [currentForm, setCurrentForm] = useState(0);
 
@@ -67,6 +68,7 @@ const Home = () => {
 
   return (
     <FormDataProvider>
+      <Navbar />
       <main>
         <div className="mx-auto max-w-xl px-4 mt-8">
           <div className={progressBarStyle}>
@@ -88,6 +90,8 @@ const Home = () => {
         {currentForm === 1 && <FormComponentvisa onNext={handleNext} onPrev={handlePrev} />}
         {currentForm === 2 && <FormComponentplus onPrev={handlePrev}  />}
       </main>
+       {/* Include the Navbar component */}
+      <Footer />
     </FormDataProvider>
   );
 };
