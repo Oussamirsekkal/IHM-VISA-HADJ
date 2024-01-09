@@ -218,21 +218,6 @@ const DataPage = ({ cartData: initialCartData }: DataProps) => {
                <th className="py-3 px-6 text-left">Phone Number</th>
                <th className="py-3 px-6 text-left">Business Address</th>
                <th className="py-3 px-6 text-left">Business Phone Number</th>
-               <th className="py-3 px-6 text-left">Purpose of Travel</th>
-               <th className="py-3 px-6 text-left">Passport Number</th>
-               <th className="py-3 px-6 text-left">Date Passport Issued</th>
-               <th className="py-3 px-6 text-left">Date Passport Expiration</th>
-               <th className="py-3 px-6 text-left">Passport Issue Place</th>
-               <th className="py-3 px-6 text-left">Date of Departure</th>
-               <th className="py-3 px-6 text-left">Date of Arrival</th>
-               <th className="py-3 px-6 text-left">Duration of Stay in Kingdom</th>
-               <th className="py-3 px-6 text-left">Mode of Payment</th>
-               <th className="py-3 px-6 text-left">Cheque Receipt Number</th>
-               <th className="py-3 px-6 text-left">Date of Receipt</th>
-               <th className="py-3 px-6 text-left">Mahram</th>
-               <th className="py-3 px-6 text-left">Mahram Relationship</th>
-               <th className="py-3 px-6 text-left">Carrier Name</th>
-               <th className="py-3 px-6 text-left">Destination</th>
 
              </tr>
                  </thead>
@@ -258,21 +243,7 @@ const DataPage = ({ cartData: initialCartData }: DataProps) => {
                   <td className="py-4 px-6">{item.phone_number}</td>
                   <td className="py-4 px-6">{item.business_address}</td>
                   <td className="py-4 px-6">{item.business_phone_number}</td>
-                  <td className="py-4 px-6">{item.purpose_travel}</td>
-                  <td className="py-4 px-6">{item.passnum}</td>
-<td className="py-4 px-6">{item.datePassportIssued}</td>
-<td className="py-4 px-6">{item.datePassportExpiration}</td>
-<td className="py-4 px-6">{item.pass_issue_place}</td>
-<td className="py-4 px-6">{item.date_departure}</td>
-<td className="py-4 px-6">{item.date_arrival}</td>
-<td className="py-4 px-6">{item.duration_stay_kingdom}</td>
-<td className="py-4 px-6">{item.mode_payment}</td>
-<td className="py-4 px-6">{item.cheque_recep_num}</td>
-<td className="py-4 px-6">{item.date_recep}</td>
-<td className="py-4 px-6">{item.mahram}</td>
-<td className="py-4 px-6">{item.mahram_relationship}</td>
-<td className="py-4 px-6">{item.carier_name}</td>
-<td className="py-4 px-6">{item.destination}</td>
+
 
                       <td className="py-4 px-6">
                         <button
