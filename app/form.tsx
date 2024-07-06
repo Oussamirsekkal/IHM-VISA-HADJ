@@ -15,7 +15,7 @@ interface FormComponentProps {
  
   
 }
-
+{/* */}
 
 const FormComponent: FC<FormComponentProps> = ({ onNext } ) => {
   const [formData, setFormData] = useState({
